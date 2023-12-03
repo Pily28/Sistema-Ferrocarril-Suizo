@@ -2,7 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package Vista;
+package Ventanas;
+
+import java.util.Random;
+import classes.FilaPasajeros;
 
 /**
  *
@@ -10,11 +13,23 @@ package Vista;
  */
 public class FrmOficial extends javax.swing.JInternalFrame {
 
+    FilaPasajeros zurich;
+    FilaPasajeros basilea;
+    FilaPasajeros ginebra;
+    FilaPasajeros berna;
+    FilaPasajeros lucerna;
+    Random rn;
     /**
      * Creates new form FrmOficial
      */
     public FrmOficial() {
         initComponents();
+        zurich = new FilaPasajeros();
+        basilea = new FilaPasajeros();
+        ginebra = new FilaPasajeros();
+        berna = new FilaPasajeros();
+        lucerna = new FilaPasajeros();
+        rn = new Random();
     }
 
     /**
@@ -78,6 +93,7 @@ public class FrmOficial extends javax.swing.JInternalFrame {
         lblFilaZurichPersona = new javax.swing.JLabel();
         lblFondoFila = new javax.swing.JLabel();
         lbltodos = new javax.swing.JLabel();
+        btnViajar = new java.awt.Button();
         lblFondo = new javax.swing.JLabel();
 
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -261,6 +277,14 @@ public class FrmOficial extends javax.swing.JInternalFrame {
         lbltodos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/todos.png"))); // NOI18N
         jDesktopPane1.add(lbltodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 90, 340));
 
+        btnViajar.setLabel("Viajar");
+        btnViajar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViajarActionPerformed(evt);
+            }
+        });
+        jDesktopPane1.add(btnViajar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, -1, -1));
+
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpg"))); // NOI18N
         lblFondo.setText("jLabel1");
         jDesktopPane1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -20, 700, 390));
@@ -279,8 +303,27 @@ public class FrmOficial extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnViajarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViajarActionPerformed
+        // TODO add your handling code here:
+        int num = rn.nextInt(5) + 1;
+        //llega un tren a la ciuidad, se deben agregar 15 pasajeros a la lista de espera
+        zurich.agregarNuevosPasajeros();
+        System.out.println(zurich.devolverPasajeros());
+        System.out.println("**************************************");
+        System.out.println("Se eliminaran los pasajeros de la cuidad: " + num);
+        //cuando el tren se va, se lleva todos los pasajeros de la cuidad destino (num)
+        int pasajerosViajando = zurich.retirarPasajerosPorCiudad(num);
+        // pasajerosViajando es lo que debe ir en la propiedad del tren
+        System.out.println("Estan " + pasajerosViajando +  " pasajeros viajando a la cuidad " + num);
+        //como control, la lista ahora no tiene los pasajeros que ya estan viajando
+        System.out.println(zurich.devolverPasajeros());
+        System.out.println("***************FINAL*******************");
+        
+    }//GEN-LAST:event_btnViajarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button btnViajar;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCiudad;

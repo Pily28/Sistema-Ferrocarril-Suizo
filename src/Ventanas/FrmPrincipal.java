@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Vista;
+package Ventanas;
 
 /**
  *
@@ -33,16 +33,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(730, 460));
         getContentPane().setLayout(null);
-        getContentPane().add(dskPanel);
-        dskPanel.setBounds(43, 437, 0, 0);
 
         lblIntro2.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.background"));
         lblIntro2.setFont(new java.awt.Font("Sylfaen", 1, 42)); // NOI18N
         lblIntro2.setForeground(new java.awt.Color(144, 42, 42));
         lblIntro2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblIntro2.setText("Bienvenido al sistema de Trenes");
-        getContentPane().add(lblIntro2);
+        dskPanel.add(lblIntro2);
         lblIntro2.setBounds(60, 170, 620, 80);
 
         lblIntroSombra.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.background"));
@@ -51,7 +50,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         lblIntroSombra.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblIntroSombra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/wallpaper.png"))); // NOI18N
         lblIntroSombra.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(lblIntroSombra);
+        dskPanel.add(lblIntroSombra);
         lblIntroSombra.setBounds(70, 170, 630, 60);
 
         jButton1.setBackground(new java.awt.Color(255, 242, 224));
@@ -59,21 +58,25 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(144, 42, 42));
         jButton1.setText("Continuar");
         jButton1.setAlignmentY(0.2F);
-        jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
+        dskPanel.add(jButton1);
         jButton1.setBounds(290, 380, 140, 30);
 
         lblFondo.setBackground(new java.awt.Color(246, 242, 238));
         lblFondo.setForeground(new java.awt.Color(255, 153, 51));
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/suiza.jpg"))); // NOI18N
         lblFondo.setText("jLabel1");
-        getContentPane().add(lblFondo);
+        lblFondo.setMaximumSize(new java.awt.Dimension(710, 430));
+        lblFondo.setMinimumSize(new java.awt.Dimension(710, 430));
+        dskPanel.add(lblFondo);
         lblFondo.setBounds(-20, 0, 730, 430);
+
+        getContentPane().add(dskPanel);
+        dskPanel.setBounds(0, 0, 710, 430);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
